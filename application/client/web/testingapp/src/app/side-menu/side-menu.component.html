@@ -1,0 +1,83 @@
+<div class="side-menu" [ngClass]="{'collapsed': isCollapsed}" style="height: 100vh;background: linear-gradient(0deg, #01B6FB 0%, #0867FA 100%);">
+    <div class="menu-content" [ngClass]="{'collapsed': isCollapsed}">
+        <ul class="nav flex-column">
+            <div class="sidebar-logo p-3"> <a class="d-flex justify-content-center align-items-center">
+                    <img src="./assets/img/gepimage.png" *ngIf="isExpanded" alt="logo" height="40" width="160">
+                    <img src="./assets/img/favicon.ico" *ngIf="!isExpanded" alt="logo" height="40" width="40">
+                </a>
+
+            </div>
+            <div class="mt-4">
+                <div id="mainmenu" class="">
+                    <li (click)="usersComp()" class="lihove" *ngIf="isExpanded"> <i class="fa fa-home" style="color: #ffff; margin-right: 5px;"></i>{{'source.home'
+                        | i18next}}</li>
+                    <li (click)="usersComp()" class="lihove" *ngIf="!isExpanded"> <i class="fa fa-home" style="color: #ffff; margin-right: 5px;"></i> 
+                    </li>
+                    <li (click)="usersComp()" class="lihove" *ngIf="isExpanded"> <i class="fa fa-ticket" style="color: #ffff; margin-right: 5px;"></i>{{'source.login'
+                        | i18next}}</li>
+                    <li (click)="usersComp()" class="lihove" *ngIf="!isExpanded"> <i class="fa fa-ticket" style="color: #ffff; margin-right: 5px;"></i> 
+                    </li>
+                    <li (click)="usersComp()" class="lihove" *ngIf="isExpanded"> <i class="fa fa-ticket" style="color: #ffff; margin-right: 5px;"></i>{{'source.sefscreen'
+                        | i18next}}</li>
+                    <li (click)="usersComp()" class="lihove" *ngIf="!isExpanded"> <i class="fa fa-ticket" style="color: #ffff; margin-right: 5px;"></i> 
+                    </li>
+                    <div id="icrvgp" class="cell gpd-clm" *ngIf='isAdminUser && userId!=null'>
+                        <div id="i6vd27" class="gdp-row gpd-grid" *ngIf='isAdminUser && userId!=null'>
+                            <div id="inlo1l" class="cell gpd-clm" *ngIf='isAdminUser && userId!=null'> <i id="iyxitk" class="fa fa-user" aria-hidden="true"></i>
+
+                            </div>
+                            <div id="iytw4t" class="cell gpd-clm" *ngIf='isAdminUser && userId!=null'> <a id="i9imej" class="gpd-text" [routerLink]="['/admin']">{{'source.admin'| i18next}}</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="icrvgp" class="cell gpd-clm" *ngIf='userId!=null'>
+                        <div id="i6vd27" class="gdp-row gpd-grid" *ngIf='userId!=null'>
+                            <div id="inlo1l" class="cell gpd-clm" *ngIf='userId!=null'> <i id="iyxitk" class="fa fa-sign-out" aria-hidden="true"></i>
+
+                            </div>
+                            <div id="iytw4t" class="cell gpd-clm"> <a id="i9imej" class="gpd-text" *ngIf='userId!=null' (click)="logout()">{{'source.logout' | i18next}}</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <li>
+                        <div id="icrvgp" class="cell gpd-clm">
+                            <div id="i6vd27" class="gdp-row gpd-grid">
+                                <div id="inlo1l" class="cell gpd-clm"> <i id="iyxitk" class="fa fa-language" aria-hidden="true"></i>
+
+                                </div>
+                                <div id="iytw4t" class="cell gpd-clm"> <a href="#translator" data-toggle="collapse" aria-expanded="false" id="i9imej"
+                                    class="dropdown-toggle text">
+                                                {{'source.selectLanguage' | i18next }} </a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="collapse list-unstyled" id="translator">
+                            <li *ngFor="let lang of languages">
+                                <div id="icrvgp" class="cell gpd-clm">
+                                    <div id="i6vd27" class="gdp-row gpd-grid">
+                                        <div id="iytw4t" class="cell gpd-clm"> <a id="i9imej" class="text" (click)='confirmLangModel(lang)'> {{'languages.' + lang | i18nextCap}}</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="" style="position: absolute;bottom: 0;">
+    <li *ngIf="isExpanded" (click)="toggleMenu()"> <i class="fa fa-angle-double-right" style="color: #ffff;margin-right: 5px;"></i>
+Open</li>
+    <li
+    *ngIf="!isExpanded" (click)="toggleMenu()"> <i class="fa fa-angle-double-right" style="color: #ffff;margin-right: 5px;"></i>
+
+        </li>
+</div>
+</ul>
+</div>
+</div>
